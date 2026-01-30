@@ -1,0 +1,109 @@
+# ================================
+# Dependencies
+# ================================
+node_modules/
+.pnpm-store/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+.venv/
+ENV/
+env/
+.eggs/
+*.egg-info/
+*.egg
+
+# ================================
+# Build outputs
+# ================================
+dist/
+dist-ssr/
+build/
+*.local
+
+# ================================
+# Environment & Secrets
+# ================================
+.env
+.env.local
+.env.*.local
+.env.development
+.env.production
+*.pem
+*.key
+
+# ================================
+# IDE & Editor
+# ================================
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ================================
+# OS files
+# ================================
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# ================================
+# Logs & Debug
+# ================================
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ================================
+# Testing & Coverage
+# ================================
+coverage/
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+.nox/
+.hypothesis/
+
+# ================================
+# Python specific
+# ================================
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.mypy_cache/
+.ruff_cache/
+
+# ================================
+# Database
+# ================================
+*.db
+*.sqlite3
+
+# ================================
+# Misc
+# ================================
+*.bak
+*.tmp
+*.temp
+
+# ================================
+# Claude & OMC (optional - uncomment if needed)
+# ================================
+# .claude/
+# .omc/
+# .mcp.json

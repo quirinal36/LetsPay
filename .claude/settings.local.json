@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:payssam.kr)",
+      "Bash(npm install:*)",
+      "Bash(omc:*)",
+      "Bash(git init:*)",
+      "Bash(gh repo create:*)",
+      "mcp__github__create_repository",
+      "Bash(git remote add:*)",
+      "Bash(git add:*)",
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nInitial commit: Add Product Requirements Document\n\nCo-Authored-By: Claude Opus 4.5 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "mcp__github__create_issue",
+      "Bash(pnpm create:*)",
+      "Bash(npm create:*)",
+      "Bash(poetry add:*)",
+      "Bash(poetry env use:*)",
+      "Bash(npx tailwindcss:*)",
+      "Bash(npm run build:*)"
+    ]
+  }
+}
