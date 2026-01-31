@@ -102,8 +102,8 @@ pip-delete-this-directory.txt
 *.temp
 
 # ================================
-# Claude & OMC (optional - uncomment if needed)
+# Claude & OMC
 # ================================
-# .claude/
-# .omc/
-# .mcp.json
+.claude/
+.omc/
+.mcp.json
