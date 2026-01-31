@@ -1,18 +1,9 @@
-"""SQLAlchemy models"""
+"""Database models"""
 from app.models.base import Base
-from app.models.merchant import Merchant
-from app.models.customer import Customer
 from app.models.bill import Bill
-from app.models.payment import Payment
 from app.models.cash_receipt import CashReceipt
+from app.models.customer import Customer
 from app.models.notification_log import NotificationLog
+from app.models.payment import Payment
 
-__all__ = [
-    "Base",
-    "Merchant",
-    "Customer",
-    "Bill",
-    "Payment",
-    "CashReceipt",
-    "NotificationLog",
-]
+__all__ = ["Base", "Bill", "CashReceipt", "Customer", "NotificationLog", "Payment"]

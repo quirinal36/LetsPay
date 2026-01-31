@@ -1,48 +1,15 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Depends
 
-from app.api.deps import CurrentUser, DBSession
-from app.schemas.customer import CustomerCreate, CustomerResponse, CustomerList
+from app.core.security import TokenData, get_current_user
 
 router = APIRouter()
 
 
-@router.get("", response_model=CustomerList)
-async def list_customers(
-    current_user: CurrentUser,
-    db: DBSession,
-    skip: int = 0,
-    limit: int = 20,
-):
-    """List customers for current merchant"""
-    return CustomerList(items=[], total=0, skip=skip, limit=limit)
+@router.get("")
+async def list_customers(current_user: TokenData = Depends(get_current_user)):
+    return {"customers": [], "total": 0}
 
 
-@router.post("", response_model=CustomerResponse)
-async def create_customer(
-    customer: CustomerCreate,
-    current_user: CurrentUser,
-    db: DBSession,
-):
-    """Create a new customer"""
-    return CustomerResponse(
-        id="placeholder",
-        merchant_id=current_user.sub,
-        name=customer.name,
-        phone=customer.phone,
-        email=customer.email,
-    )
-
-
-@router.get("/{customer_id}", response_model=CustomerResponse)
-async def get_customer(
-    customer_id: str,
-    current_user: CurrentUser,
-    db: DBSession,
-):
-    """Get customer by ID"""
-    return CustomerResponse(
-        id=customer_id,
-        merchant_id=current_user.sub,
-        name="Placeholder",
-        phone="010-0000-0000",
-    )
+@router.post("")
+async def create_customer(current_user: TokenData = Depends(get_current_user)):
+    return {"message": "Customer creation endpoint - to be implemented"}

@@ -1,6 +1,6 @@
-from typing import Optional, List
-from pydantic import BaseModel
 from datetime import datetime
+
+from pydantic import BaseModel
 
 
 class PaymentBase(BaseModel):
@@ -12,16 +12,16 @@ class PaymentResponse(BaseModel):
     id: str
     bill_id: str
     amount: int
-    method: Optional[str] = None
+    method: str | None = None
     status: str
-    paid_at: Optional[datetime] = None
+    paid_at: datetime | None = None
 
     class Config:
         from_attributes = True
 
 
 class PaymentList(BaseModel):
-    items: List[PaymentResponse]
+    items: list[PaymentResponse]
     total: int
     skip: int
     limit: int

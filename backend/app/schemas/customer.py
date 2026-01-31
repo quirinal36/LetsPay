@@ -1,13 +1,13 @@
-from typing import Optional, List
+
 from pydantic import BaseModel, EmailStr
 
 
 class CustomerBase(BaseModel):
     name: str
     phone: str
-    email: Optional[EmailStr] = None
-    memo: Optional[str] = None
-    tags: Optional[List[str]] = None
+    email: EmailStr | None = None
+    memo: str | None = None
+    tags: list[str] | None = None
 
 
 class CustomerCreate(CustomerBase):
@@ -23,7 +23,7 @@ class CustomerResponse(CustomerBase):
 
 
 class CustomerList(BaseModel):
-    items: List[CustomerResponse]
+    items: list[CustomerResponse]
     total: int
     skip: int
     limit: int

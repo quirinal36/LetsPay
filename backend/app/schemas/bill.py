@@ -1,6 +1,7 @@
-from typing import Optional, List, Literal
-from pydantic import BaseModel
 from datetime import datetime
+from typing import Literal
+
+from pydantic import BaseModel
 
 
 class BillItemSchema(BaseModel):
@@ -14,13 +15,13 @@ class BillBase(BaseModel):
     customer_id: str
     amount: int
     title: str
-    description: Optional[str] = None
-    items: Optional[List[BillItemSchema]] = None
+    description: str | None = None
+    items: list[BillItemSchema] | None = None
     tax_type: Literal["TAX", "TAX_FREE"] = "TAX"
     send_type: Literal["IMMEDIATE", "SCHEDULED", "RECURRING"]
     send_channel: Literal["ALIMTALK", "SMS", "BOTH"]
-    scheduled_at: Optional[datetime] = None
-    message: Optional[str] = None
+    scheduled_at: datetime | None = None
+    message: str | None = None
 
 
 class BillCreate(BillBase):
@@ -34,20 +35,20 @@ class BillResponse(BaseModel):
     bill_number: str
     amount: int
     title: str
-    description: Optional[str] = None
+    description: str | None = None
     tax_type: str
     send_type: str
     send_channel: str
     status: str
-    sent_at: Optional[datetime] = None
-    paid_at: Optional[datetime] = None
+    sent_at: datetime | None = None
+    paid_at: datetime | None = None
 
     class Config:
         from_attributes = True
 
 
 class BillList(BaseModel):
-    items: List[BillResponse]
+    items: list[BillResponse]
     total: int
     skip: int
     limit: int

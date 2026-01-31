@@ -18,7 +18,10 @@
       "Bash(poetry add:*)",
       "Bash(poetry env use:*)",
       "Bash(npx tailwindcss:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(poetry run ruff:*)",
+      "Bash(pnpm run build:*)",
+      "Bash(powershell -Command \"cd 'c:/Users/Albert-15/Documents/GitHub/LetsPay/frontend'; pnpm run build\":*)"
     ]
   }
 }

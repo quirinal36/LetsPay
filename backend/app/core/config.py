@@ -1,16 +1,13 @@
 from functools import lru_cache
+
 from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    """Application settings"""
-
     APP_NAME: str = "LetsPay"
     ENVIRONMENT: str = "development"
     DEBUG: bool = True
-
-    # API
-    API_V1_PREFIX: str = "/api/v1"
+    API_PREFIX: str = "/api/v1"
 
     # Database
     DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/letspay"
@@ -27,16 +24,13 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 30
 
     # CORS
-    CORS_ORIGINS: list[str] = ["http://localhost:5173", "http://localhost:3000"]
+    CORS_ORIGINS: list[str] = ["http://localhost:5173"]
 
     class Config:
         env_file = ".env"
         case_sensitive = True
 
 
-@lru_cache()
+@lru_cache
 def get_settings() -> Settings:
     return Settings()
-
-
-settings = get_settings()

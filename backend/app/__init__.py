@@ -1,1 +1,1 @@
-"""LetsPay Backend API"""
+"""LetsPay Backend Application"""
